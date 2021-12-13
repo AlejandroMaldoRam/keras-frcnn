@@ -9,9 +9,9 @@ import pickle
 import re
 
 from keras import backend as K
-from tensorflow.keras.optimizers import Adam, SGD, RMSprop
-from tensorflow.keras.layers import Input
-from tensorflow.keras.models import Model
+from keras.optimizers import Adam, SGD, RMSprop
+from keras.layers import Input
+from keras.models import Model
 from keras_frcnn import config, data_generators
 from keras_frcnn import losses as losses
 import keras_frcnn.roi_helpers as roi_helpers
@@ -81,8 +81,8 @@ else:
 	# set the path to weights based on backend and model
 	C.base_net_weights = nn.get_weight_path()
 
-train_imgs, classes_count, class_mapping = get_data(options.train_path, 'trainval')
-val_imgs, _, _ = get_data(options.train_path, 'test')
+train_imgs, classes_count, class_mapping = get_data(options.train_path)
+val_imgs, _, _ = get_data(options.train_path)
 
 if 'bg' not in classes_count:
 	classes_count['bg'] = 0
